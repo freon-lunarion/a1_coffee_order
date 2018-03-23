@@ -19,12 +19,13 @@ order_db = []
 
 class CoffeeList(Resource):
     def get(self):
-        pass
+        return [row.__dict__ for row in coffee_db]
 
 class CoffeeInst(Resource):
     def get(self,id):
         row = next((x for x in coffee_db if x.coffee_id == id), None)
-
+        return [row.__dict__ for row in coffee_db]
+    
 class OrderList(Resource):
     def get(self):
         status = request.args.get('status')
