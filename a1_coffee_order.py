@@ -21,7 +21,7 @@ def get_orders():
     return jsonify([st.__dict__ for st in order_db])
 
 @app.route('/orders/status/<status>', methods=['GET'])
-def get_order_bystatus(status):
+def get_orders_bystatus(status):
     return jsonify([row.__dict__ for row in order_db if str(row.status).lower() == str(status).lower()])
 
 @app.route('/orders/<order_id>', methods=['GET'])
